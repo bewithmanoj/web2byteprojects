@@ -3,8 +3,6 @@
 
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
-		// $query = "SELECT * FROM users";
-		// $res = mysql_query($query);
 		$res = mysql_query("SELECT * FROM users WHERE userId='$id'");
 		$row = mysql_fetch_array($res);
 	}
