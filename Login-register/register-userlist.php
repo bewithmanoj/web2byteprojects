@@ -1,5 +1,6 @@
 <?php 
     include('header.php');
+
    $query = "SELECT * FROM users";
    $result = mysql_query($query);
 
@@ -18,13 +19,16 @@
       <div class="col-sm-12">
       <h2 class="heading">Register Users List</h2>
       <table cellpadding="0" cellspacing="0" border="1" width="100%" class="table-bordered table">
+      <tr>
+      <td colspan="6" align="right"><a href="signup.php"  class="btn-default btn">Add Record</a></td>
+      </tr>
             <tr>
               <td><b>Name</b></td>
               <td><b>Email</b></td>
               <td><b>Password</b></td>
               <td><b>Phone</b></td>
               <td><b>Address</b></td>
-              <td><b>Add/delet</b></td>
+              <td width="170"><b>Add/Delet</b></td>
           </tr>
         <?php 
           while($row = mysql_fetch_array( $result )) {
@@ -45,7 +49,7 @@ echo '<td>' . $row['userPhone'] . '</td>';
 
 echo '<td>' . $row['userAddress'] . '</td>';
 
-echo '<td align="center"><a href="delete.php?id=' . $row['userId'] . '" class="btn-danger btn">Delete</a> <a href="edit.php?edit=' . $row['userId'] . '"  class="btn-success btn">Edit</a></td>';
+echo '<td align="center"><a href="delet.php?del='. $row['userId'] .'" class="btn-danger delete btn">Delete</a><a href="edit.php?edit=' . $row['userId'] . '"  class="btn-success btn">Edit</a></td>';
 
 echo "</tr>";
 
@@ -74,7 +78,7 @@ echo "</tr>";
             <div class="text-danger"><?php echo $ttt ?></div>
         <?php } ?>
         <a href="signup.php" class="btn btn-success margin-top50">Back to register</a>
-        <a href="#" class="btn btn-default margin-top50">Download Data</a>
+        <a href="download.php" class="btn btn-default margin-top50">Download Data</a>
   </div>
 </div>
 </div>
